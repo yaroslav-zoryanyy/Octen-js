@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    let array = [1,2,3,4,5,6,7,8,9,10]
+    console.log(array[0])
+    console.log(array[1])
+    console.log(array[2])
+    console.log(array[3])
+    console.log(array[4])
+    console.log(array[5])
+    console.log(array[6])
+    console.log(array[7])
+    console.log(array[8])
+    console.log(array[9])
+
+    let DescriptionBookOne = {
+        title: 'animals',
+        pageCount:'243',
+        genre:'about animals'
+    }
+    let DescriptionBookTwo = {
+        title: 'apple',
+        pageCount:'65',
+        genre:'about apple'
+    }
+    let DescriptionBookThree = {
+        title: 'my love',
+        pageCount:'192',
+        genre:'history love'
+    }
+
+    let DescriptionBookFour = {
+        title: 'people',
+        pageCount:'453',
+        genre:'psychology',
+        authors:['Yaroslav','24']
+    }
+    let DescriptionBookFive = {
+        title: 'Iphone',
+        pageCount:'76',
+        genre:'history',
+        authors:['Ivan','32']
+    }
+    let DescriptionBookSix = {
+        title: 'gold egg',
+        pageCount:'12',
+        genre:'tale',
+        authors:['Ira','18']
+    }
+
+    let user = [
+        {
+            name:'user1',
+            username:'username1',
+            password:'password1'
+        },
+        {
+            name:'user2',
+            username:'username2',
+            password:'password2'
+        },
+        {
+            name:'user3',
+            username:'username3',
+            password:'password3'
+        },
+        {
+            name:'user4',
+            username:'username4',
+            password:'password4'
+        },
+        {
+            name:'user5',
+            username:'username5',
+            password:'password5'
+        },
+        {
+            name:'user6',
+            username:'username6',
+            password:'password6'
+        },
+        {
+            name:'user7',
+            username:'username7',
+            password:'password7'
+        },
+        {
+            name:'user8',
+            username:'username8',
+            password:'password8'
+        },
+        {
+            name:'user9',
+            username:'username9',
+            password:'password9'
+        },
+        {
+            name:'user10',
+            username:'username10',
+            password:'password10'
+        }
+    ]
+
+    console.log(user[0].password)
+    console.log(user[1].password)
+    console.log(user[2].password)
+    console.log(user[3].password)
+    console.log(user[4].password)
+    console.log(user[5].password)
+    console.log(user[6].password)
+    console.log(user[7].password)
+    console.log(user[8].password)
+    console.log(user[9].password)
+
+    let weather = [
+        {
+            morning: 6,
+            afternoon: 30,
+            evening: 17
+        },
+        {
+            morning: 3,
+            afternoon: 24,
+            evening: 9
+        },
+        {
+            morning: 0,
+            afternoon: 20,
+            evening: 3
+        },
+        {
+            morning: 4,
+            afternoon: 33,
+            evening: 17
+        },
+        {
+            morning: 12,
+            afternoon: 23,
+            evening: 8
+        },
+        {
+            morning: 9,
+            afternoon: 18,
+            evening: 5
+        },
+        {
+            morning: 12,
+            afternoon: 38,
+            evening: 20
+        }
+    ]
+
+    let x = 1;
+    // let x = 0;
+    // let x = -3;
+    if(x){
+        alert('Вірно!')
+    }else{
+        alert('Невірно')
+    }
+
+    let time = 34;
+    if( time >= 0 && time <= 25){
+        console.log('в першу')
+    }else if( time > 25 && time <= 50){
+        console.log('в другу')
+    }else if( time > 50 && time <= 75){
+        console.log('в третю')
+    }else if( time > 75 && time <= 100){
+        console.log('в четверту')
+    }
+
+    let day = 12;
+    if( day >= 0 && day <= 10){
+        console.log('в першу')
+    }else if( day > 10 && day <= 20){
+        console.log('в другу')
+    }else{
+        console.log('в третю')
+    }
+
+    let schedule = prompt('Уведіть день тижня ')
+    switch (+schedule){
+        case 1 :
+            console.log('first')
+            break;
+        case 2 :
+            console.log('two')
+            break;
+        case 3 :
+            console.log('three')
+            break;
+        case 4 :
+            console.log('four')
+            break;
+        case 5 :
+            console.log('five')
+            break;
+        case 6 :
+            console.log('six')
+            break;
+        case 7 :
+            console.log('seven')
+            break;
+    }
+
+    let number1 = 12;
+    let number2 = 12;
+    if(number1 == number2){
+        console.log('введені рівні числа')
+    }else if(number1 > number2){
+        console.log('перше число більше')
+    }else{
+        console.log('друге число більше')
+    }
+
+    let tr = true;
+    switch (x){
+        case tr :
+            console.log('nice')
+            break;
+        default:
+            console.log("Sorry")
+    }
+
+</script>
+</body>
+</html>
