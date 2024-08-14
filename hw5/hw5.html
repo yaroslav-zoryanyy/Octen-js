@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+     const square = (a,b) => a * b
+     console.log(square(2,2))
+
+     // Радіус кола за діаметром
+     const radius = (D) => D / 2
+     console.log(radius(42))
+
+     // Площа бічної поверхні циліндра
+     const squareCylinder = (h,r) => 2 * 3.14 * r * h
+     console.log(squareCylinder(22,12))
+
+     let arr = [1,3,5,7,9,"string",true];
+     const arrSort = function (arr){
+         if(arr){
+             for (const arrElement of arr) {
+                 console.log(arrElement)
+             }
+         }
+     }
+     console.log(arrSort(arr))
+
+     let text = "Hello"
+     const createParagraph = (content) => document.write(`<p>${content}</p>`)
+     createParagraph(text)
+
+     let listContent = "Octen";
+     const list = (content) => document.write(`<ul><li>${content}</li><li>${content}</li><li>${content}</li></ul>`)
+     list(listContent)
+
+     let listContent2 = "Cool)";
+     let count = 2;
+     const list2 = function (content,count){
+         document.write(`<ul>`)
+         for (let i = 0; i < count; i++) {
+             document.write(`<li>${content}</li><li>${content}</li><li>${content}</li>`)
+         }
+         document.write(`</ul>`)
+     }
+     list2(listContent2,count)
+
+     let arr2 = [2,3,4,'oll','hi','uno',true,true,false];
+     const array = function (arr){
+         document.write(`<ul>`)
+         for (const arrElement of arr) {
+             document.write(`<li>${arrElement}</li>`)
+         }
+         document.write(`</ul>`)
+     }
+     array(arr2)
+
+     let arrObjects = [{
+         id: 1,
+         name:'Alex',
+         age: 25
+     },{
+         id: 2,
+         name:'Ina',
+         age: 30
+     },{
+         id: 3,
+         name:'Roman',
+         age: 46
+     }]
+     const writeArrObject = function (objects){
+         for (const object of objects) {
+             document.write(`<div>id:${object.id}, name:${object.name}, age:${object.age}</div>`)
+         }
+     }
+     writeArrObject(arrObjects)
+
+     let arrNumbers = [-2,-1,0,1,2,3,4,5,6,7,8,9];
+     const minNumber = function (numbers){
+         let min = 0;
+         for (const number of numbers) {
+             if(number < min){
+                 min = number;
+             }
+         }
+         return min;
+     }
+     console.log(minNumber(arrNumbers))
+
+     const sum = function (arr){
+         let sum = 0;
+         for (let i = 0; i < arr.length; i++) {
+             sum = sum + arr[i] ;
+         }
+         return sum
+     }
+     console.log(sum(arrNumbers))
+
+     let swapNumbers = [11,22,33,44]
+     const swap = function (arr,index1,index2){
+         let swapNumbers = [];
+         for (let i = 0; i < arr.length; i++) {
+             if( i === index1 ){
+                 swapNumbers.push(arr[index2])
+             }else if(i === index2){
+                 swapNumbers.push(arr[index1])
+             }else {
+                 swapNumbers.push(arr[i])
+             }
+         }
+         return swapNumbers
+     }
+     console.log(swap(swapNumbers,0,1))
+
+     let Values = [
+         {
+             currency:'USD',
+             value:40
+         },{
+             currency:'EUR',
+             value:42
+         },{
+             currency:'CZK',
+             value:1.73
+         },{
+             currency:'CENT',
+             value:0.003
+         },{
+             currency:'PLN',
+             value:10.59
+         }
+     ]
+     const exchange = function (sumUAH,currencyValues,exchangeCurrency){
+         if(sumUAH > 0){
+             for (const currencyValue of currencyValues) {
+                 if(currencyValue.currency === exchangeCurrency){
+                     console.log( sumUAH / currencyValue.value )
+                 }
+             }
+         }
+     }
+     exchange(10000,Values,'CZK')
+</script>
+</body>
+</html>
