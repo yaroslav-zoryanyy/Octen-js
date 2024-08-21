@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    function User(id, name, surname , email, phone) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+    }
+    let users = [];
+        users.push(new User(10,'ira','kremova','kremova_ira.@gmail.com',0686743781))
+        users.push(new User(6,'ivan','moskalenko','ivan-moskalenko.@ukr.net',0936743796))
+        users.push(new User(3,'tania','kirichenko','kirichenko_tania04.@novahoshta.ua',0679854337))
+        users.push(new User(4,'panas','drug','drugpanas99.@gmail.com',0996589322))
+        users.push(new User(9,'artem','gorpnov','gorpnov_artem.@gmail.com', 0668743624))
+        users.push(new User(2,'vlad','lulka','lulkavlad2015.@comfy.ua',0686743781))
+        users.push(new User(7,'koly','prohorow','prohorow-koly.@ukr.net',0936743796))
+        users.push(new User(8,'anya','adamenko','adamenko_anya02.@novahoshta.ua',0679854337))
+        users.push(new User(5,'taras','trus','taras--trus.@gmail.com',0996589322))
+        users.push(new User(1,'roman','nehay','nehayRoman.@ukr.net', 0668743624))
+    console.log(users)
+
+    //Метод filter() створює новий массив,з елементами які пройшли перевірку, задану середині тіла методу.
+    let filterByParity = users.filter(user => user.id % 2 === 0)
+    console.log(filterByParity)
+
+    //Метод sort() одразу сортує елементи масива по заданій умові та повертає відсортований массив.
+    let sortByGrowth = users.sort((a, b) => a.id - b.id)
+    console.log(sortByGrowth)
+
+    //class - синтаксичний цукор над механізмом прототипного наслідування
+    class Client {
+        constructor(id, name, surname , email, phone, order) {
+            this.id = id;
+            this.name = name;
+            this.surname = surname;
+            this.email = email;
+            this.phone = phone;
+            this.order = order;
+        }
+    }
+    let Clients = [];
+        Clients.push(new Client(10,'ira','kremova','kremova_ira.@gmail.com',0686743781,['pen','mous','doll']));
+        Clients.push(new Client(6,'ivan','moskalenko','ivan-moskalenko.@ukr.net',0936743796,['tel','car']));
+        Clients.push(new Client(3,'tania','kirichenko','kirichenko_tania04.@novahoshta.ua',0679854337,['phone','ball','keybord']));
+        Clients.push(new Client(4,'panas','drug','drugpanas99.@gmail.com',0996589322,['mouse','tel']));
+        Clients.push(new Client(9,'artem','gorpnov','gorpnov_artem.@gmail.com', 0668743624,['pen','tel','ball','phone']));
+        Clients.push(new Client(2,'vlad','lulka','lulkavlad2015.@comfy.ua',0686743781,['doll','phone','phone']));
+        Clients.push(new Client(7,'koly','prohorow','prohorow-koly.@ukr.net',0936743796,['car', 'keybord','computer','cage']));
+        Clients.push(new Client(8,'anya','adamenko','adamenko_anya02.@novahoshta.ua',0679854337,['laptop','notebook','cage']));
+        Clients.push(new Client(5,'taras','trus','taras--trus.@gmail.com',0996589322,['car','tel','pen']));
+        Clients.push(new Client(1,'roman','nehay','nehayRoman.@ukr.net', 0668743624,['phone','mous','laptop']));
+    console.log(Clients)
+
+    // let sortByParityOrder = Clients.sort((a,b) => a.order.length - b.order.length);
+    // console.log(sortByParityOrder)
+    //
+    // function Car(model,producer,yearOfGraduation,maxSpeed,engineVolume){
+    //     this.model = model;
+    //     this.producer = producer;
+    //     this.yearOfGraduation = yearOfGraduation;
+    //     this.maxSpeed = maxSpeed;
+    //     this.engineVolume = engineVolume;
+    //     this.drive = function () {
+    //         console.log(`їдемо зі швидкістю ${maxSpeed} на годину`)
+    //     };
+    //     this.info = function () {
+    //         console.log(`model - ${model}, producer - ${producer}, yearOfGraduation - ${yearOfGraduation}, maxSpeed - ${maxSpeed}, engineVolume - ${engineVolume}`)
+    //     };
+    //     this.increaseMaxSpeed = function (newSpeed) {
+    //         this.maxSpeed = this.maxSpeed + newSpeed
+    //     };
+    //     this.changeYear = function (newValue) {
+    //         this.yearOfGraduation = newValue
+    //     };
+    //     this.addDriver = function (driver) {
+    //         if(driver) this.driver = driver;
+    //     };
+    // }
+    // const car = new Car('E-125','german',1999,240,2.0)
+    // console.log(car)
+    // car.drive();
+    // car.info();
+    // car.increaseMaxSpeed(100);
+    // car.changeYear(2000);
+    // car.addDriver({age:18,name:'vlad'});
+    // console.log(car);
+
+    class Car {
+        constructor(model,producer,yearOfGraduation,maxSpeed,engineVolume) {
+            this.model = model;
+            this.producer = producer;
+            this.yearOfGraduation = yearOfGraduation;
+            this.maxSpeed = maxSpeed;
+            this.engineVolume = engineVolume;
+            this.drive = function () {
+                console.log(`їдемо зі швидкістю ${maxSpeed} на годину`)
+            };
+            this.info = function () {
+                console.log(`model - ${model}, producer - ${producer}, yearOfGraduation - ${yearOfGraduation}, maxSpeed - ${maxSpeed}, engineVolume - ${engineVolume}`)
+            };
+            this.increaseMaxSpeed = function (newSpeed) {
+                this.maxSpeed = this.maxSpeed + newSpeed
+            };
+            this.changeYear = function (newValue) {
+                this.yearOfGraduation = newValue
+            };
+            this.addDriver = function (driver) {
+                if(driver) this.driver = driver;
+            };
+
+        }
+    }
+    const car = new Car('G-350','Poland',2025,400,5)
+    console.log(car)
+    car.drive();
+    car.info();
+    car.increaseMaxSpeed(56);
+    car.changeYear(2015);
+    car.addDriver({age:42,name:'Ivan'});
+    console.log(car);
+
+    class Cinderella{
+        constructor(name,age,footSize) {
+            this.name = name;
+            this.age = age;
+            this.footSize = footSize;
+        }
+    };
+    let Cinderellas = [];
+        Cinderellas.push(new Cinderella ('Ira',22,39));
+        Cinderellas.push(new Cinderella ('Any',17,35));
+        Cinderellas.push(new Cinderella ('Valya',39,40));
+        Cinderellas.push(new Cinderella ('Lena',20,37));
+        Cinderellas.push(new Cinderella ('Katya',24,38));
+        Cinderellas.push(new Cinderella ('Yana',33,41));
+        Cinderellas.push(new Cinderella ('Tanya',19,37));
+        Cinderellas.push(new Cinderella ('Dasha',21,39));
+        Cinderellas.push(new Cinderella ('Masha',28,40));
+        Cinderellas.push(new Cinderella ('Alina',22,36));
+
+    class Prince {
+        constructor(name,age,shoeSize) {
+            this.name = name;
+            this.age = age;
+            this.shoeSize = shoeSize;
+        }
+        //створення методу для пошуку попелюшки
+        findCinderella(cinderellas) {
+            for (let cinderella of cinderellas) {
+                if (cinderella.footSize === this.shoeSize) {
+                    return cinderella;
+                }
+            }
+            return null;
+        }
+    }
+    const prince = new Prince('Andriy', 25, 36);
+    const matchingCinderella = prince.findCinderella(Cinderellas);
+    if (matchingCinderella) {
+        console.log(`Принц ${prince.name} знайшов свою Попелюшку! Це ${matchingCinderella.name}, вік: ${matchingCinderella.age}, розмір ноги: ${matchingCinderella.footSize}.`);
+    } else {
+        console.log('Попелюшка не знайдена.');
+    }
+    //Метод find() використовується для пошуку елемента в масиві, який відповідає умові, заданій у вигляді функції. Він повертає перший елемент масиву
+    const currentCinderella = Cinderellas.find(cinderella => cinderella.footSize === prince.shoeSize)
+    console.log(currentCinderella)
+
+    function Array (name,age,gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+    Array.prototype.foreach = function (){
+        for(let i = 0; i < Array.length; i++){
+            return 'Holla';
+        }
+    }
+    Array.prototype.filter = function (callback){
+        let result = [];
+
+        for (let i = 0; i < this.length; i++) {
+            if (callback(this[i], i, this)) {
+                result.push(this[i]);
+            }
+        }
+        return result;
+    };
+    let arr = new Array('Ivan',22,'men');
+    console.log(arr.foreach())
+
+
+
+
+
+</script>
+</body>
+</html>
