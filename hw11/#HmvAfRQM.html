@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзини</title>
+</head>
+<body>
+<h1>Інформація про всі корзини</h1>
+<div id="container"></div>
+
+<script>
+    fetch('https://dummyjson.com/carts?limit=50')
+        .then(response => response.json())
+        .then(data => {
+            const cartsContainer = document.getElementById('container');
+            data.carts.forEach(cart => {
+                const cartElement = document.createElement('div');
+                cartElement.style.border = '1px solid black';
+                cartElement.style.margin = '10px';
+                cartElement.style.padding = '10px';
+
+                cartElement.innerHTML = `
+                        <p><strong>ID:</strong> ${cart.id}</p>
+                        <p><strong>User ID:</strong> ${cart.userId}</p>
+                        <p><strong>Total Products:</strong> ${cart.totalProducts}</p>
+                        <p><strong>Total Quantity:</strong> ${cart.totalQuantity}</p>
+                        <p><strong>Total:</strong> ${cart.total}</p>
+                        <p><strong>Discounted Total:</strong> ${cart.discountedTotal}</p>
+                        <h4>Продукти:</h4>
+                        <ul>
+                            ${cart.products.map(product => `
+                                <li>
+                                    <p><strong>ID продукту:</strong> ${product.id}</p>
+                                    <p><strong>Назва:</strong> ${product.title}</p>
+                                    <p><strong>Ціна:</strong> $${product.price}</p>
+                                    <p><strong>Кількість:</strong> ${product.quantity}</p>
+                                    <p><strong>Знижка (%):</strong> ${product.discountPercentage}%</p>
+                                    <p><strong>Всього:</strong> $${product.total}</p>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    `;
+                cartsContainer.appendChild(cartElement);
+            });
+        })
+</script>
+</body>
+</html>

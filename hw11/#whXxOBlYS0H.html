@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        let container = document.getElementById('container')
+        fetch('https://dummyjson.com/recipes?limit=50')
+            .then(res => res.json())
+            .then(res => {
+                res.recipes.forEach(recipe => {
+                    let div = document.createElement('div')
+                    div.style.border = '1px solid black';
+                    div.style.margin = '10px';
+                    div.style.padding = '10px';
+                    div.innerHTML = `
+                        <p><strong>ID:</strong> ${recipe.id}</p>
+                        <p><strong>Name:</strong> ${recipe.name}</p>
+                        <p><strong>image:</strong> <img src="${recipe.image}" alt="image"></p>
+                        <p><strong>User ID:</strong> ${recipe.userId}</p>
+                        <p><strong>CaloriesPerServing:</strong> ${recipe.caloriesPerServing}</p>
+                        <p><strong>CookTimeMinutes:</strong> ${recipe.cookTimeMinutes}</p>
+                        <p><strong>Cuisine:</strong> ${recipe.cuisine}</p>
+                        <p><strong>Difficulty:</strong> ${recipe.difficulty}</p>
+                        <p><strong>PrepTimeMinutes:</strong> ${recipe.prepTimeMinutes}</p>
+                        <p><strong>Rating:</strong> ${recipe.rating}</p>
+                        <p><strong>ReviewCount:</strong> ${recipe.reviewCount}</p>
+                        <p><strong>Servings:</strong> ${recipe.servings}</p>`;
+
+                    div.append(document.createElement('h4').textContent = 'Ingredients')
+                    const ingredientsList = document.createElement('ol');
+                    recipe.ingredients.forEach(ingredient => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = ingredient;
+                        ingredientsList.appendChild(listItem);
+                    });
+                    div.appendChild(ingredientsList);
+
+                    div.append(document.createElement('h4').textContent = 'Instructions')
+                    const instructionsList = document.createElement('ol');
+                    recipe.instructions.forEach(instruction => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = instruction;
+                        instructionsList.appendChild(listItem);
+                    });
+                    div.appendChild(instructionsList);
+
+                    div.append(document.createElement('h4').textContent = 'Tags')
+                    const tagsList = document.createElement('ol');
+                    recipe.tags.forEach(tag => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = tag;
+                        tagsList.appendChild(listItem);
+                    });
+                    div.appendChild(tagsList);
+
+                    container.appendChild(div)
+                });
+            });
+    </script>
+</body>
+</html>

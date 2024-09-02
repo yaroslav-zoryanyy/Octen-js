@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        let obj = {
+            name: 'Sven',
+            age: 18,
+            car: 'Mersedes',
+            maxSpeed: 320,
+            log(item){
+                console.log(item)
+            },
+            addMaxSpeed(number){
+                return this.maxSpeed + number
+            }
+        }
+        // Метод JSON.stringify() повертає js-значення,перетворене в JSON-рядок
+        // Метод JSON.parse() розберає рядок JSON,можливо з перетворенням отриманого в процесі розбору значення
+        const deep = (obj) => {
+            return JSON.parse(JSON.stringify(obj))
+        }
+        let obj2 = deep(obj);
+        for (const index in obj2) {
+            if(index === undefined){
+                console.log(index,'undefined')
+            }else if(index === null){
+                console.log(index,'null')
+            }else if(index === NaN){
+                console.log(index,'Nan')
+            }
+        }
+        let arrFunction = [obj.log(),obj.addMaxSpeed()]
+        console.log(obj)
+        console.log(obj2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
